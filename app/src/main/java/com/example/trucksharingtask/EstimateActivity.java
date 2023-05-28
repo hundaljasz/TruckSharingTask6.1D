@@ -38,7 +38,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class EstimateMapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class EstimateActivity extends AppCompatActivity implements OnMapReadyCallback {
+
     private MapView mapView;
     private GoogleMap googleMap;
     Double distance;
@@ -65,7 +66,7 @@ public class EstimateMapActivity extends AppCompatActivity implements OnMapReady
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_estimate_map);
+        setContentView(R.layout.activity_estimate);
         intentReceive = getIntent();
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);

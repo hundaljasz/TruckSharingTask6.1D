@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -12,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 public class OrderDetails extends AppCompatActivity {
+    private static final String TAG = "GeofenceBroadcastReceiver";
+
     TextView senderTV, receiverTV, dateTV, timeTV,
             locationTV, weightTV, widthTV, heightTV,
             lengthTV, goodTypeTV, dropOff;
@@ -75,14 +78,15 @@ public class OrderDetails extends AppCompatActivity {
         });
 
         estimateBtm.setOnClickListener(view -> {
-            Intent estimateActivity = new Intent(OrderDetails.this,EstimateMapActivity.class);
+            Intent estimateActivity = new Intent(OrderDetails.this,EstimateActivity.class);
             estimateActivity.putExtra("pick_up",intentReceive.getStringExtra("location"));
             estimateActivity.putExtra("drop_off",intentReceive.getStringExtra("dropOff"));
             startActivity(estimateActivity);
         });
 
         checkDriver.setOnClickListener(view -> {
-            Intent estimateActivity = new Intent(OrderDetails.this,MapsActivity.class);
+            Log.d(TAG,"Geofence triggered...");
+            Intent estimateActivity = new Intent(OrderDetails.this,MapsActivity2.class);
             estimateActivity.putExtra("pick_up",intentReceive.getStringExtra("location"));
             estimateActivity.putExtra("drop_off",intentReceive.getStringExtra("dropOff"));
             startActivity(estimateActivity);
