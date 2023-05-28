@@ -26,6 +26,7 @@
         android:id="@+id/SenderTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="@string/from_sender"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -40,6 +41,7 @@
         android:id="@+id/DateTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="@string/pickup_date"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -54,85 +56,63 @@
         android:id="@+id/LocationTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:text="@string/pickup_location"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TimeTV"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.048" />
+
+    <TextView
+        android:id="@+id/dropLocationTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/drop_location"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TimeTV"
+        app:layout_constraintVertical_bias="0.164" />
 
     <TextView
         android:id="@+id/TimeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="432dp"
         android:text="@string/pickup_time"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DateTV"
-        app:layout_constraintVertical_bias="0.027" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/DateTV"
+        app:layout_constraintTop_toBottomOf="@+id/ReceiverTV"
+        app:layout_constraintVertical_bias="0.833" />
 
     <TextView
         android:id="@+id/ReceiverTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="472dp"
         android:text="@string/receiver_name"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SenderTV"
-        app:layout_constraintVertical_bias="0.035" />
-
-    <TextView
-        android:id="@+id/DescriptionTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/good_description"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LocationTV"
-        app:layout_constraintVertical_bias="0.062" />
-
-    <TextView
-        android:id="@+id/HeightTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/height"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toEndOf="@+id/WidthTV"
-        app:layout_constraintTop_toBottomOf="@+id/GoodTypeTV"
-        app:layout_constraintVertical_bias="0.149" />
-
-    <TextView
-        android:id="@+id/WidthTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/width"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WeightTV"
-        app:layout_constraintVertical_bias="0.149" />
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toEndOf="@+id/SenderTV"
+        app:layout_constraintTop_toBottomOf="@+id/orderDetailsImageView"
+        app:layout_constraintVertical_bias="0.97" />
 
     <TextView
         android:id="@+id/GoodTypeTV"
@@ -143,24 +123,38 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toEndOf="@+id/WeightTV"
         app:layout_constraintTop_toBottomOf="@+id/DescriptionTV"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintVertical_bias="0.123" />
 
     <TextView
-        android:id="@+id/lengthTV"
+        android:id="@+id/WidthTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/length"
+        android:text="@string/width"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WidthTV"
-        app:layout_constraintVertical_bias="0.192" />
+        app:layout_constraintTop_toBottomOf="@+id/WeightTV"
+        app:layout_constraintVertical_bias="0.159" />
+
+    <TextView
+        android:id="@+id/HeightTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/height"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toEndOf="@+id/WidthTV"
+        app:layout_constraintTop_toBottomOf="@+id/GoodTypeTV"
+        app:layout_constraintVertical_bias="0.159" />
 
     <TextView
         android:id="@+id/WeightTV"
@@ -171,35 +165,78 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DescriptionTV"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintVertical_bias="0.123" />
 
-    <Button
-        android:id="@+id/callDriver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/call_driver"
+    <TextView
+        android:id="@+id/DescriptionTV"
+        android:layout_width="207dp"
+        android:layout_height="47dp"
+        android:fontFamily="@font/s1"
+        android:text="Good Description"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lengthTV"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintTop_toBottomOf="@+id/LocationTV"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <TextView
+        android:id="@+id/lengthTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/length"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DescriptionTV"
+        app:layout_constraintVertical_bias="0.38" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/s2"
+        android:fontFamily="@font/s1"
         android:text="Order Details"
-        android:textSize="24sp"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/getEstBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="78dp"
+        android:text="Get Estimate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintStart_toEndOf="@+id/callDriver"
+        app:layout_constraintTop_toBottomOf="@+id/lengthTV"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/callDriver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="78dp"
+        android:text="@string/call_driver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lengthTV"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

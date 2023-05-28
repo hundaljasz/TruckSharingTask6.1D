@@ -14,9 +14,9 @@ import java.util.Locale;
 public class OrderDetails extends AppCompatActivity {
     TextView senderTV, receiverTV, dateTV, timeTV,
             locationTV, weightTV, widthTV, heightTV,
-            lengthTV, goodTypeTV;
+            lengthTV, goodTypeTV, dropOff;
 
-    Button callDriver;
+    Button callDriver,estimateBtm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +33,16 @@ public class OrderDetails extends AppCompatActivity {
         lengthTV = findViewById(R.id.lengthTV);
         goodTypeTV = findViewById(R.id.GoodTypeTV);
         callDriver = findViewById(R.id.callDriver);
+        estimateBtm = findViewById(R.id.getEstBtn);
+        dropOff = findViewById(R.id.dropLocationTV);
 
         Intent intentReceive = getIntent();
         String sender = "Sender: " + intentReceive.getStringExtra("sender");
         String receiver = "Receiver: " + intentReceive.getStringExtra("receiver");
         Long date = intentReceive.getLongExtra("date", 0);
         String time = "Pickup time: " + intentReceive.getStringExtra("time");
-        String location = "Pickup location: " + intentReceive.getStringExtra("location");
+        String location = "Pickup Location: " + intentReceive.getStringExtra("location");
+        String dropL = "Drop Off Location: " + intentReceive.getStringExtra("dropOff");
         String goodType = "Good type: \n" + intentReceive.getStringExtra("goodType");
         int weight = intentReceive.getIntExtra("weight", 0);
         int width = intentReceive.getIntExtra("width", 0);
@@ -62,11 +65,19 @@ public class OrderDetails extends AppCompatActivity {
         heightTV.setText(heightString);
         lengthTV.setText(lengthString);
         goodTypeTV.setText(goodType);
+        dropOff.setText(dropL);
 
         callDriver.setOnClickListener(view -> {
             String phoneNumber = "1234567890";
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNumber, null));
             startActivity(intent);
+        });
+
+        estimateBtm.setOnClickListener(view -> {
+            Intent estimateActivity = new Intent(OrderDetails.this,EstimateActivity.class);
+            estimateActivity.putExtra("pick_up",intentReceive.getStringExtra("location"));
+            estimateActivity.putExtra("drop_off",intentReceive.getStringExtra("dropOff"));
+            startActivity(estimateActivity);
         });
     }
 }

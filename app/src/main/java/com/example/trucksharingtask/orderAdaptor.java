@@ -77,6 +77,7 @@ public class orderAdaptor extends RecyclerView.Adapter<orderAdaptor.OrderViewHol
             intent.putExtra("date", orderList.get(position).getDate());
             intent.putExtra("time", orderList.get(position).getTime());
             intent.putExtra("location",orderList.get(position).getLocation());
+            intent.putExtra("dropOff",orderList.get(position).getDropOff());
             intent.putExtra("goodType", orderList.get(position).getGoodType());
             intent.putExtra("weight", orderList.get(position).getWeight());
             intent.putExtra("width", orderList.get(position).getWidth());

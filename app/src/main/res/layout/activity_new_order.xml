@@ -31,6 +31,18 @@
         app:layout_constraintVertical_bias="0.152" />
 
     <TextView
+        android:id="@+id/pickUpDeliveryLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pickFrom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newDeliveryTimeTextView"
+        app:layout_constraintVertical_bias="0.345" />
+
+    <TextView
         android:id="@+id/newDeliveryDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,23 +83,6 @@
         app:layout_constraintVertical_bias="0.037" />
 
     <EditText
-        android:id="@+id/orderLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/location"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
-        app:layout_constraintStart_toEndOf="@+id/newDeliveryLocationTextView"
-        app:layout_constraintTop_toBottomOf="@+id/orderTime"
-        app:layout_constraintVertical_bias="0.054"
-        android:autofillHints="" />
-
-    <EditText
         android:id="@+id/orderTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,9 +106,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderLocation"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CalendarView
         android:id="@+id/orderCalendarView"
@@ -124,5 +117,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderReceiver"
         app:layout_constraintVertical_bias="0.073" />
+
+    <fragment
+        android:id="@+id/autocomplete_fragment"
+        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+        android:layout_width="210dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="476dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.626"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <fragment
+        android:id="@+id/autocomplete_fragment2"
+        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+        android:layout_width="210dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="536dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.626"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/orderLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/nextBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
+        app:layout_constraintVertical_bias="0.482" />
+
+    <TextView
+        android:id="@+id/DropOffLocation"
+        android:layout_width="5dp"
+        android:layout_height="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/nextBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
+        app:layout_constraintVertical_bias="0.818" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

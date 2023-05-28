@@ -18,6 +18,7 @@
     <string name="add_delivery">add delivery</string>
     <string name="receiver_name">Receiver name:</string>
     <string name="pickup_location">Pickup location:</string>
+    <string name="drop_location">Drop Off location:</string>
     <string name="name">Name</string>
     <string name="location">Location</string>
     <string name="pickup_date">Pickup date:</string>
@@ -42,7 +43,8 @@
     <string name="van">Van</string>
     <string name="refrigerated_truck">Refrigerated truck</string>
     <string name="good_type">Good type</string>
-    <string name="good_description">Good Description</string>
+    <string name="good_description"> Good Description</string>
     <string name="from_sender">From sender:</string>
     <string name="call_driver">Call driver</string>
+    <string name="pickFrom">Drop Off:</string>
 </resources>

@@ -17,7 +17,7 @@ public class newOrderDetails extends AppCompatActivity {
     RadioButton goodTypeRBTN, vehicleTypeRBTN;
     EditText weightET,heightET , widthET, otherGoodTypeET, otherVehicleTypeET,  lengthET;
     Button createOrder;
-    String receiver, time, location, sender;
+    String receiver, time, location, sender, dropOff;
     Long date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class newOrderDetails extends AppCompatActivity {
         receiver = intentReceive.getStringExtra("receiver");
         sender = intentReceive.getStringExtra("sender");
         location = intentReceive.getStringExtra("location");
+        dropOff = intentReceive.getStringExtra("dropOff");
         time = intentReceive.getStringExtra("time");
         date = intentReceive.getLongExtra("date", Calendar.getInstance().getTime().getTime());
 
@@ -84,7 +85,7 @@ public class newOrderDetails extends AppCompatActivity {
                 vehicleType = vehicleTypeRBTN.getText().toString();
             }
 
-            orderModel order = new orderModel(sender, receiver, goodType,vehicleType, time, location ,date, weight, length, width, height);
+            orderModel order = new orderModel(sender, receiver, goodType,vehicleType, time, location , dropOff,date, weight, length, width, height);
             long result = db.addOrder(order);
             if (result > -1) {
                 Toast.makeText(this, "Order created Successfully!....", Toast.LENGTH_SHORT).show();

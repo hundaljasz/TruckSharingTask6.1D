@@ -18,7 +18,7 @@ import java.util.List;
 
 public class DB extends SQLiteOpenHelper {
     public DB(@Nullable Context context) {
-        super(context, "truck_app_db", null, 1);
+        super(context, "truck_app_db1", null, 1);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class DB extends SQLiteOpenHelper {
         String CREATE_DELIVERIES_TABLE = "CREATE TABLE DELIVERIES (DID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 " receiver TEXT, sender TEXT, goods_type TEXT, veh_type TEXT," +
                 "weight INTEGER, length INTEGER, width INTEGER, height INTEGER" +
-                ", time TEXT, location TEXT, date TEXT);";
+                ", time TEXT, location TEXT, dropOff TEXT, date TEXT);";
         sqLiteDatabase.execSQL(CREATE_DELIVERIES_TABLE);
     }
 
@@ -112,9 +112,19 @@ public class DB extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                orderModel order = new orderModel(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4),
-                        cursor.getString(5), cursor.getString(6), Long.parseLong(cursor.getString(7)),
-                        cursor.getInt(8), cursor.getInt(9), cursor.getInt(10), cursor.getInt(11));
+                @SuppressLint("Range") orderModel order = new orderModel(
+                        cursor.getString(cursor.getColumnIndex("sender")),
+                        cursor.getString(cursor.getColumnIndex("receiver")),
+                        cursor.getString(cursor.getColumnIndex("goods_type")),
+                        cursor.getString(cursor.getColumnIndex("veh_type")),
+                        cursor.getString(cursor.getColumnIndex("time")),
+                        cursor.getString(cursor.getColumnIndex("location")),
+                        cursor.getString(cursor.getColumnIndex("dropOff")),
+                        Long.parseLong(cursor.getString(cursor.getColumnIndex("date"))),
+                        cursor.getInt(cursor.getColumnIndex("weight")),
+                        cursor.getInt(cursor.getColumnIndex("length")),
+                        cursor.getInt(cursor.getColumnIndex("width")),
+                        cursor.getInt(cursor.getColumnIndex("height")));
                 orderList.add(order);
                 cursor.moveToNext();
             } while(!cursor.isAfterLast());
@@ -131,6 +141,7 @@ public class DB extends SQLiteOpenHelper {
         contentValues.put("date", order.getDate().toString());
         contentValues.put("time", order.getTime());
         contentValues.put("location", order.getLocation());
+        contentValues.put("dropOff",order.getDropOff());
         contentValues.put("goods_type", order.getGoodType());
         contentValues.put("veh_type", order.getVehicleType());
         contentValues.put("weight", order.getWeight());

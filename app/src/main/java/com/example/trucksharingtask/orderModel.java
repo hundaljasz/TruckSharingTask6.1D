@@ -2,11 +2,11 @@ package com.example.trucksharingtask;
 
 public class orderModel {
     int DID;
-    String sender, receiver, goodType, vehicleType, time, location;
+    String sender, receiver, goodType, vehicleType, time, location, dropOff;
     Long date;
     Integer weight, length, width, height;
 
-    public orderModel( String sender, String receiver, String goodType, String vehicleType, String time, String location, Long date, Integer weight, Integer length, Integer width, Integer height) {
+    public orderModel( String sender, String receiver, String goodType, String vehicleType, String time, String location, String dropOff, Long date, Integer weight, Integer length, Integer width, Integer height) {
         this.sender = sender;
         this.receiver = receiver;
         this.goodType = goodType;
@@ -18,6 +18,15 @@ public class orderModel {
         this.length = length;
         this.width = width;
         this.height = height;
+        this.dropOff = dropOff;
+    }
+
+    public String getDropOff() {
+        return dropOff;
+    }
+
+    public void setDropOff(String dropOff) {
+        this.dropOff = dropOff;
     }
 
     public int getDID() {

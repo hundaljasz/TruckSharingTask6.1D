@@ -16,6 +16,9 @@
         android:theme="@style/Theme.TruckSharingTask"
         tools:targetApi="31">
         <activity
+            android:name=".EstimateActivity"
+            android:exported="false" />
+        <activity
             android:name=".accountActivity"
             android:exported="false" />
         <activity
@@ -55,7 +58,11 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB65LpbHTkKKJ4EE7gV--oCVD4ryOaYjrI" />
+            android:value="AIzaSyB65LpbHTkKKJ4EE7gV--oCVD4ryOaYjrI"
+            />
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
     </application>
 
 </manifest>
