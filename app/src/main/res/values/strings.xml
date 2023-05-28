@@ -47,4 +47,5 @@
     <string name="from_sender">From sender:</string>
     <string name="call_driver">Call driver</string>
     <string name="pickFrom">Drop Off:</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

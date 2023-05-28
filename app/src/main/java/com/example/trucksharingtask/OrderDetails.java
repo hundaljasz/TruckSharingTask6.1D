@@ -16,7 +16,7 @@ public class OrderDetails extends AppCompatActivity {
             locationTV, weightTV, widthTV, heightTV,
             lengthTV, goodTypeTV, dropOff;
 
-    Button callDriver,estimateBtm;
+    Button callDriver,estimateBtm, checkDriver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,7 @@ public class OrderDetails extends AppCompatActivity {
         callDriver = findViewById(R.id.callDriver);
         estimateBtm = findViewById(R.id.getEstBtn);
         dropOff = findViewById(R.id.dropLocationTV);
+        checkDriver = findViewById(R.id.checkDriver);
 
         Intent intentReceive = getIntent();
         String sender = "Sender: " + intentReceive.getStringExtra("sender");
@@ -74,7 +75,14 @@ public class OrderDetails extends AppCompatActivity {
         });
 
         estimateBtm.setOnClickListener(view -> {
-            Intent estimateActivity = new Intent(OrderDetails.this,EstimateActivity.class);
+            Intent estimateActivity = new Intent(OrderDetails.this,EstimateMapActivity.class);
+            estimateActivity.putExtra("pick_up",intentReceive.getStringExtra("location"));
+            estimateActivity.putExtra("drop_off",intentReceive.getStringExtra("dropOff"));
+            startActivity(estimateActivity);
+        });
+
+        checkDriver.setOnClickListener(view -> {
+            Intent estimateActivity = new Intent(OrderDetails.this,MapsActivity.class);
             estimateActivity.putExtra("pick_up",intentReceive.getStringExtra("location"));
             estimateActivity.putExtra("drop_off",intentReceive.getStringExtra("dropOff"));
             startActivity(estimateActivity);

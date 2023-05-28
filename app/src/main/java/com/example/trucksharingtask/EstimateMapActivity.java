@@ -5,20 +5,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -41,8 +38,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
-
-public class EstimateActivity extends AppCompatActivity implements OnMapReadyCallback{
+public class EstimateMapActivity extends AppCompatActivity implements OnMapReadyCallback {
     private MapView mapView;
     private GoogleMap googleMap;
     Double distance;
@@ -57,10 +53,19 @@ public class EstimateActivity extends AppCompatActivity implements OnMapReadyCal
             .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
             .clientId(clientKey);
 
+    private GeofencingClient geofencingClient;
+    private GeofenceHelper geofenceHelper;
+
+    private float GEOFENCE_RADIUS = 200;
+    private String GEOFENCE_ID = "SOME_GEOFENCE_ID";
+
+    private int FINE_LOCATION_ACCESS_REQUEST_CODE = 10001;
+    private int BACKGROUND_LOCATION_ACCESS_REQUEST_CODE = 10002;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_estimate);
+        setContentView(R.layout.activity_estimate_map);
         intentReceive = getIntent();
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
@@ -72,8 +77,8 @@ public class EstimateActivity extends AppCompatActivity implements OnMapReadyCal
         GpayBTN.setOnClickListener(view -> {
             getPayment();
         });
-
     }
+
 
     private void getPayment() {
 
